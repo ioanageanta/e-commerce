@@ -65,4 +65,53 @@ public class Cart {
 			e.printStackTrace();
 		}
 	}
+	
+	public double doTotal() {
+		double sum;
+		sum = 0;
+		Set set = this.items.entrySet();
+		Iterator i = set.iterator();
+		while(i.hasNext()) {
+			Map.Entry entry = (Map.Entry)i.next();
+			int q = (int) entry.getKey();
+			double quantity = q;
+			sum += ((Product)entry.getValue()).getPrice() * quantity;
+			System.out.println((Product)entry.getValue() + " " +entry.getKey());
+		}
+		System.out.println(sum);
+		return sum;
+	}
+
+	public HashMap<Integer, Product> getItems() {
+		return items;
+	}
+
+	public void setItems(HashMap<Integer, Product> items) {
+		this.items = items;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Date getCommandDate() {
+		return commandDate;
+	}
+
+	public void setCommandDate(Date commandDate) {
+		this.commandDate = commandDate;
+	}
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+	
 }
